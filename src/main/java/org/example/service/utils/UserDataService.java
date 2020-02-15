@@ -1,4 +1,4 @@
-package org.example.service;
+package org.example.service.utils;
 
 import org.example.exception.AppException;
 
