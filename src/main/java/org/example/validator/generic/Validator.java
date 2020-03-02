@@ -1,3 +1,4 @@
+  /*Generic interface providing validate method*/
 package org.example.validator.generic;
 
 import java.util.Map;

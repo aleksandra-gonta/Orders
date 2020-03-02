@@ -1,3 +1,4 @@
+/*This is class allowing to send data to users via email*/
 package org.example.service.utils;
 
 import org.example.exception.AppException;
@@ -12,6 +13,7 @@ public class EmailService {
     private static final String EMAIL_ADDRESS = "cossica123123@gmail.com";
     private static final String EMAIL_PASSWORD = "Bi@nk@11";
 
+    /*Method sending email*/
 
     public void send(String to, String title, String html) {
         try {
@@ -26,7 +28,7 @@ public class EmailService {
         }
     }
 
-
+    /*Method preparing the message to be send*/
     private  void prepareEmailMessage(MimeMessage mimeMessage, String to, String title, String html) {
         try {
             mimeMessage.setContent(html, "text/html; charset=utf-8");
@@ -37,7 +39,7 @@ public class EmailService {
             throw new AppException("prepare email message");
         }
     }
-
+    /*Method creating smtp sesion*/
     private Session createSession() {
         Properties properties = new Properties();
         properties.put("mail.smtp.starttls.enable", "true");

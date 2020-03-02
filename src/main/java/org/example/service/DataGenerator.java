@@ -1,3 +1,4 @@
+/*This is class generating random data */
 package org.example.service;
 
 import lombok.AllArgsConstructor;

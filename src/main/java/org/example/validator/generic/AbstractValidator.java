@@ -1,3 +1,4 @@
+/*Abstract class implementing validator interface methods*/
 package org.example.validator.generic;
 
 import java.util.HashMap;

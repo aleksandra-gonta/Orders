@@ -1,3 +1,4 @@
+/*This is class creating order object*/
 package org.example.model;
 
 import lombok.AllArgsConstructor;

@@ -8,6 +8,8 @@ import java.time.LocalDate;
 import java.time.Period;
 import java.util.Map;
 
+/*Class validating the correctness of order object*/
+
 public class OrderValidator extends AbstractValidator<Order> {
     private static final String PRODUCT_NAME_ERROR_MESSAGE = "product name should contain only upper case letters and spaces";
     private static final String CUSTOMER_ERROR_MESSAGE = "customer object cannot be null";

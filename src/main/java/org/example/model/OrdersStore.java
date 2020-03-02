@@ -1,3 +1,4 @@
+/*This is class creating  object storing orders*/
 package org.example.model;
 
 import lombok.AllArgsConstructor;

@@ -1,3 +1,4 @@
+   /*This class provides console menu for car service*/
 package org.example.ui;
 
 import com.google.gson.Gson;
@@ -16,7 +17,7 @@ import java.util.Map;
 
 public class MenuService {
     private final OrdersService ordersService;
-
+    /*Method providing the chosen option*/
     public void mainMenu() {
         while (true) {
             try {
@@ -85,7 +86,7 @@ public class MenuService {
         System.out.println("12 - end of app");
         return UserDataService.getInt("Choose option:");
     }
-
+    /*Methods option1-option11 used in the menu, based on all the methods from OrderService Class*/
     private void option1() {
         LocalDate start = UserDataService.getDate("Enter the beggining date");
         LocalDate end = UserDataService.getDate("Enter the end date");

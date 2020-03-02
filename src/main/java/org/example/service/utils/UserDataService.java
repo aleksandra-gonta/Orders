@@ -1,3 +1,4 @@
+/*This is class allowing retrieving data from users*/
 package org.example.service.utils;
 
 import org.example.exception.AppException;
@@ -13,12 +14,12 @@ public final class UserDataService {
     private UserDataService() {}
 
     private final static Scanner scanner = new Scanner(System.in);
-
+    /*Method retrieving String value*/
     public static String getString(String message) {
         System.out.println(message);
         return scanner.nextLine();
     }
-
+    /*Method retrieving int value*/
     public static int getInt(String message) {
         System.out.println(message);
 
@@ -29,6 +30,7 @@ public final class UserDataService {
 
         return Integer.parseInt(valueAsString);
     }
+    /*Method retrieving double value*/
     public static double getDouble(String message) {
         System.out.println(message);
 
@@ -39,6 +41,7 @@ public final class UserDataService {
 
         return Double.parseDouble(valueAsString);
     }
+    /*Method retrieving BigDecimal value*/
     public static BigDecimal getBigDecimal(String message) {
         System.out.println(message);
 
@@ -49,7 +52,7 @@ public final class UserDataService {
 
         return BigDecimal.valueOf(Long.parseLong(valueAsString));
     }
-
+    /*Method retrieving date value*/
     public static LocalDate getDate(String message) {
         try {
             System.out.println(message);

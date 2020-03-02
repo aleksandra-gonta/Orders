@@ -1,3 +1,4 @@
+/*This class contains methods allowing order management*/
 package org.example.service;
 
 import org.eclipse.collections.impl.collector.Collectors2;
@@ -32,7 +33,7 @@ public class OrdersService {
         this.orders = parseAndValidateOrders(filename);
     }
 
-
+    /*Method parsing and validating order objects form JSON file*/
     private static Set<Order> parseAndValidateOrders(String jsonFilename) {
 
         if (jsonFilename == null) {
@@ -63,7 +64,7 @@ public class OrdersService {
     public String toString() {
         return "Orders:" + orders;
     }
-
+/*Method counting products average price in the given period of time*/
     public BigDecimal countProductsAveragePriceWithinPeriod(LocalDate start, LocalDate end) {
         return orders
                 .stream()
@@ -73,7 +74,7 @@ public class OrdersService {
 
 
     }
-
+/*Method returning map of the most expensive products in each category*/
     public Map<Category, Product> findMostExpensiveProductInCategory() {
         return orders
                 .stream()
@@ -81,7 +82,7 @@ public class OrdersService {
                 .collect(Collectors.groupingBy(Product::getCategory,
                         collectingAndThen(Collectors.maxBy(Comparator.comparing(Product::getPrice)), Optional::orElseThrow)));
     }
-
+/*Method sending email to customers with their orders*/
     public void sendCustomerOrdersList() {
 
         Map<Customer, List<Product>> shoppingList = orders
@@ -100,7 +101,7 @@ public class OrdersService {
         shoppingList.forEach((key, value) -> emailService.send(key.getEmail(), "SHOPPING LIST", "<h1> Your order: </h1>" + "" + value.toString()));
     }
 
-
+/*Method returning the date with the most orders*/
     public LocalDate findDateOfMaxOrders() {
 
         return orders
@@ -112,7 +113,7 @@ public class OrdersService {
                 .map(Map.Entry::getKey)
                 .get();
     }
-
+/*Method returning the date with the least orders*/
     public LocalDate findDateOfMinOrders() {
         return orders
                 .stream()
@@ -125,7 +126,7 @@ public class OrdersService {
 
 
     }
-
+   /* Method returning the customer who spend the most money*/
     public Customer findCustomerWhoPaidMost() {
 
         return orders
@@ -148,7 +149,7 @@ public class OrdersService {
 
 
     }
-
+/*Method returning the most popular product category*/
     public Category findMostPopularProductCategory() {
         return orders
                 .stream()
@@ -161,7 +162,7 @@ public class OrdersService {
                 .get();
 
     }
-
+/*Method returning map of the popular categories in each month*/
     public Map<Month, Category> showPopularProductCategoryOfMonths() {
         return orders
                 .stream()
@@ -180,7 +181,7 @@ public class OrdersService {
                 ));
 
     }
-
+/*Method returning map of products quantity in each month*/
     public Map<Month, Integer> showProductsQuantityOfMonths() {
         return orders
                 .stream()
@@ -201,7 +202,7 @@ public class OrdersService {
                         LinkedHashMap::new
                 ));
     }
-
+/*Method returning llist of customers who bought given minimum number of items*/
     public List<Customer> showCustomersWhoBoughtMinNumberOfItems(int minNumber) {
         List<Customer> customersMinItems = orders
                 .stream()
@@ -217,6 +218,7 @@ public class OrdersService {
         return customersMinItems;
     }
 
+    /*Method returning the total order price including discounts*/
     public BigDecimal countOrdersTotalPriceWithDiscounts() {
         BigDecimal discountOrders = orders
                 .stream()
